@@ -1,16 +1,24 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import NavBar from './components/NavBar'
+import { Route, Routes } from 'react-router-dom'
+import Layout from './layout/Layout'
+import TaskForm from './pages/TaskForm.jsx'
+import TaskList from './pages/TaskList'
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <NavBar />
-     <h1>To Do App</h1>
+
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<h1>{<TaskList />}</h1>}/>
+        <Route path="/add" element={<TaskForm />}/>
+        <Route path="/edit/:id" element={<TaskForm />} />
+      </Route>
+    </Routes>
     </>
   )
 }
