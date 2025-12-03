@@ -73,7 +73,7 @@ export default function TaskForm() {
         toast.success("Task added successfully!");
       }
 
-      setTimeout(() => navigate("/"), 1000);
+      setTimeout(() => navigate("/list"), 1000);
     } catch (err) {
       toast.error(err.response?.data?.message || "Something went wrong!");
       setLoading(false); // DO NOT REDIRECT on error
